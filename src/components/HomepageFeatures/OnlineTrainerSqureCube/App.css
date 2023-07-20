@@ -1,0 +1,224 @@
+body{
+  background-color: #fff;
+  font-family: Montserrat;
+  color: #2C3333;
+}
+
+.wrapper{
+  max-width: 1170px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+/*---Navigation--------------------------------------*/
+
+.nav{
+  background-color:#537188;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 30px;
+  color: #EEEEEE;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 4px 4px 4px #4a5050;
+}
+
+
+.header_container h1{
+  margin: 30px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.nav-item{
+  font-size: 30px;
+  font-weight: 600;  
+  cursor: pointer;
+}
+
+.nav-item:not(:last-child){
+  margin: 0px 50px 0px 0px;
+}
+
+.nav-item:hover{
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+/*----Calculator-------------------------------------------------------------*/
+
+.content_calculator{
+  display: flex;
+  flex-direction: column;
+}
+
+.content_data_container{
+  margin: 10px 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(44, 51, 51, 0.2), 0 4px 8px rgba(44, 51, 51, 0.2);
+}
+
+.content_data_container h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.content_data{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.content_data select{
+  background: #fff;
+  width: 100%;
+  font-weight: 500;
+  height: 30px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #E0E0E0;
+  border-left: 1px solid #E0E0E0;
+  border-radius: 5px;
+  border-right: 1px solid #E0E0E0;
+  border-top: 1px solid #E0E0E0;
+}
+
+
+.content_data input{
+  height: 24px;
+  margin-left: 16px;
+  text-align: center;
+  border-bottom: 1px solid #E0E0E0;
+  border-left: 1px solid #E0E0E0;
+  border-radius: 5px;
+  border-right: 1px solid #E0E0E0;
+  border-top: 1px solid #E0E0E0;
+}
+
+.content_data label{
+  font-weight: 600;
+}
+
+.content_flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content_flex input{
+  margin: 5px 5px;
+
+}
+
+.results{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(44, 51, 51, 0.2), 0 4px 8px rgba(44, 51, 51, 0.2);
+}
+
+.results h2{
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.results p{
+  font-weight: 500;
+}
+
+.calculator_button{
+  margin-top: 24px;
+  border-radius: 8px;
+  border-color: #3a7680;
+  background: #3a7680; 
+  padding: 18px 24px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*--Instuction--------------------------------------------------*/
+
+.instuctions_data{
+  margin-left: 15px;
+}
+
+.instuctions_data h3{
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.instuctions_data li{
+  margin-bottom: 10px;
+}
+
+/*---Theory--------------------------------------------------------*/
+
+.theory_caption{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content_theory{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between  ;
+  margin: 10px 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(44, 51, 51, 0.2), 0 4px 8px rgba(44, 51, 51, 0.2);
+}
+
+.theory_descr{
+  max-width: 60%;
+}
+
+.theory_formula{
+  margin: 10px 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(44, 51, 51, 0.2), 0 4px 8px rgba(44, 51, 51, 0.2);
+}
+
+.formula_descr{
+  margin: 15px auto;
+}
+
+.formula_vol{
+  padding: 10px 0px;
+}
+
+
+/*---ADEPT----------------------------------------------*/
+
+@media (max-width: 600px) {
+
+  .nav-item{
+      font-size: 20px;
+  }
+
+  .nav-item:not(:last-child){
+      margin: 0px 20px 0px 0px;
+  }
+
+  .content_data{
+      flex-direction: column;
+      align-items: center;
+  } 
+
+  .content_flex{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .calculator_button{
+      margin-bottom: 24px;
+  }
+}
+
