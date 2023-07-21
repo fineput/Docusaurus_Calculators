@@ -76,7 +76,7 @@ function Calculator() {
                     
                         <div className="content_flex">
 
-                            <h2 classNameName='calculator_descr'>Введіть значення довжин сторін трикутника:</h2>
+                            <h3 classNameName='calculator_descr'>Введіть значення довжин сторін трикутника:</h3>
 
                             <div className="a" id="a">
                                 <label for="a">a: </label>
