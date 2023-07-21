@@ -59,48 +59,50 @@ function Calculator() {
         }
     };
 
-  return <div class="wrapper">
-        <div class="header_container">
+  return <div className="wrapper">
+        <div className="header_container">
 
             <h1>Онлайн калькулятор. Площа трикутника за трьома сторонами. Формула Герона</h1>
             
         </div>
 
-        <div class="content" id="Calculator">
+        <div className="content" id="Calculator">
 
-            <div class="content_calculator">
+            <div className="content_calculator">
 
-                <div class="content_data_container">
+                <div className="content_data_container">
 
-                    <div class="content_data">
+                    <div className="content_data">
                     
-                        <div class="content_flex">
+                        <div className="content_flex">
 
-                            <div class="a" id="a">
+                            <h2 classNameName='calculator_descr'>Введіть значення довжин сторін трикутника:</h2>
+
+                            <div className="a" id="a">
                                 <label for="a">a: </label>
                                 <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
                             </div>
 
-                            <div class="b" id="b">
+                            <div className="b" id="b">
                                 <label for="b">b: </label>
                                 <input type="number" value={b} onChange={(e) => setB(Number(e.target.value))} />
                             </div>
 
-                            <div class="c" id="c">
+                            <div className="c" id="c">
                                 <label for="c">c: </label>
                                 <input type="number" value={c} onChange={(e) => setC(Number(e.target.value))} />
                             </div>
                             
-                            <button onClick={calculateArea} class="calculator_button">Знайти площу</button>
+                            <button onClick={calculateArea} className="calculator_button">Знайти площу</button>
                             
                         </div>
-                        <div class="image">
+                        <div className="image">
                         </div>                     
                     </div>
                 </div>
-                    <div class="results">
+                    <div className="results">
                         <h2>Результат:</h2>
-                        <p id="result">S = {area} см<sub>2</sub></p>
+                        <p id="result">S = {area} см<sup>2</sup></p>
                     </div>
             </div>
         </div>
@@ -109,10 +111,10 @@ function Calculator() {
 
 function Instructions() {
   // Код компонента інструкцій
-  return <div class="content" id="Instuctions">
-            <div class="content_data_container">
+  return <div className="content" id="Instuctions">
+            <div className="content_data_container">
                 <h2>Ввід даних в калькулятор для обчислення площі трикутника по трьом сторонам. Формула Герона.</h2>
-                <div class="instuctions_data">
+                <div className="instuctions_data">
                     <h3>Ввод чисел:</h3>
                     <ul>
                         <li>
@@ -133,19 +135,19 @@ function Instructions() {
 function Theory() {
   // Код компонента теорії
   return <div>
-    <div class="content" id="Theory">
-            <h2 class="theory_caption">Теорія. Площа трикутника за трьома точками. Формула Герона</h2>
-            <div class="content_theory_container">
+    <div className="content" id="Theory">
+            <h2 className="theory_caption">Теорія. Площа трикутника за трьома точками. Формула Герона</h2>
+            <div className="content_theory_container">
 
-                <div class="content_theory">
-                    <p class="theory_descr"><b>Трапеція</b> - це чотирикутник, у якого одна пара протилежних сторін паралельна.</p>
+                <div className="content_theory">
+                    <p className="theory_descr"><b>Трапеція</b> - це чотирикутник, у якого одна пара протилежних сторін паралельна.</p>
 
                 </div>
                
-                <div class="theory_formula">
-                    <h3 class="formula_caption"> Площу трикутника ∆ABC можна знайти знаючи довжини його сторін a, b і c, скориставшись формулою Герона:</h3>
-                    <p class="formula">S = √p(p - a)(p - b)(p - c) </p>
-                    <p class="formula_vol">де p півпериметр <br/>
+                <div className="theory_formula">
+                    <h3 className="formula_caption"> Площу трикутника ∆ABC можна знайти знаючи довжини його сторін a, b і c, скориставшись формулою Герона:</h3>
+                    <p className="formula">S = √p(p - a)(p - b)(p - c) </p>
+                    <p className="formula_vol">де p півпериметр <br/>
                         p =   (a + b + c) / 2
                     </p>
                 </div>
