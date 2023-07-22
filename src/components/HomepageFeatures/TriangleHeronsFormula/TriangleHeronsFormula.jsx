@@ -76,8 +76,7 @@ function Calculator() {
                     
                         <div className="content_flex">
 
-                            <h3 classNameName='calculator_descr'>Введіть значення довжин сторін трикутника:</h3>
-
+                            
                             <div className="a" id="a">
                                 <label for="a">a: </label>
                                 <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
