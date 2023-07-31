@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '@site/src/components/HomepageFeatures/TrapezoidPerimeterCalculator/app.css';
+import '@site/src/components/HomepageFeatures/SurfaceAreaRectangularParallelepiped/RectangularParallelepiped.css';
 
 function NavBar() {
   const [activeTab, setActiveTab] = useState('calculator');
@@ -43,61 +43,57 @@ function Calculator() {
     const [a, setA] = useState('');
     const [b, setB] = useState('');
     const [c, setC] = useState('');
-    const [d, setD] = useState('');
-    const [perimeter, setPerimeter] = useState(0);
+    const [value, setValue] = useState(0);
 
-    const calculatePerimeter = () => {
-        const result = a + b + c + d;
-        setPerimeter(result);
+    const calculateValue = () => {
+        const result = a + b + c;
+        setValue(result);
     }
 
-  return <div class="wrapper">
-        <div class="header_container">
+  return <div className="wrapper">
+        <div className="header_container">
 
-            <h1>Онлайн калькулятор. Периметр трапеції</h1>
+            <h1>Онлайн калькулятор. Периметр трикутника</h1>
             
         </div>
 
-        <div class="content" id="Calculator">
+        <div className="content" id="Calculator">
 
-            <div class="content_calculator">
+            <div className="content_calculator">
 
-                <div class="content_data_container">
+                <div className="content_data_container">
 
-                    <div class="content_data">
+                    <div className="content_data">
                     
-                        <div class="content_flex">
+                        <div className="content_flex">
+                            
+                            <h4 className='content_caption'>Введіть довжини сторін трикутника:</h4>
 
-                            <div class="a" id="a">
+                            <div className="a" id="a">
                                 <label for="a">a: </label>
                                 <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
                             </div>
 
-                            <div class="b" id="b">
+                            <div className="b" id="b">
                                 <label for="b">b: </label>
                                 <input type="number" value={b} onChange={(e) => setB(Number(e.target.value))} />
                             </div>
 
-                            <div class="c" id="c">
-                                <label for="c">c: </label>
+                            <div className="h" id="h">
+                                <label for="h">c: </label>
                                 <input type="number" value={c} onChange={(e) => setC(Number(e.target.value))} />
                             </div>
-
-                            <div class="d" id="d">
-                                <label for="d">d: </label>
-                                <input type="number" value={d} onChange={(e) => setD(Number(e.target.value))} />
-                            </div>
                             
-                            <button onClick={calculatePerimeter} class="calculator_button">Знайти периметр</button>
+                            <button onClick={calculateValue} className="calculator_button">Знайти периметр</button>
                             
                         </div>
-                        <div class="image">
+                        <div className="image">                            
                         </div>                     
                     </div>
                 </div>
-                    <div class="results">
+                    <div className="results">
                         <h2>Результат:</h2>
-                        <p id="result">P = {perimeter} см</p>
+                        <p id="result">P = {value} см</p>
                     </div>
             </div>
         </div>
@@ -106,10 +102,10 @@ function Calculator() {
 
 function Instructions() {
   // Код компонента інструкцій
-  return <div class="content" id="Instuctions">
-            <div class="content_data_container">
-                <h2>Ввід даних в калькулятор для обчислення пириметру трапеції</h2>
-                <div class="instuctions_data">
+  return <div className="content" id="Instuctions">
+            <div className="content_data_container">
+                <h3 className='instuctions_caption'>Ввід даних в калькулятор для обчислення периметра трикутника</h3>
+                <div className="instuctions_data">
                     <h3>Ввод чисел:</h3>
                     <ul>
                         <li>
@@ -128,24 +124,21 @@ function Instructions() {
 }
 
 function Theory() {
-  // Код компонента теорії
+  //Код компонента теорії
   return <div>
-    <div class="content" id="Theory">
-            <h2 class="theory_caption">Теорія. Периметр трапеції</h2>
-            <div class="content_theory_container">
+    <div className="content" id="Theory">
+            <h2 className="theory_caption">Теорія. Периметр трикутника</h2>
+            <div className="content_theory_container">
 
-                <div class="content_theory">
-                    <p class="theory_descr"><b>Трапеція</b> - це чотирикутник, у якого одна пара протилежних сторін паралельна.</p>
+                <div className="content_theory">
+                    <p className="theory_descr"><b>Периметр трикутника</b> дорівнює сумі довжин його сторін.</p>
 
                 </div>
                
-                <div class="theory_formula">
-                    <h3 class="formula_caption"><b>Периметр трапеції </b> дорівнює сумі довжин його сторін.</h3>
-                    <p class="formula">P = a + b + c + d </p>
-                    <p class="formula_vol">де P - периметр трапеції, <br/>
-                        a, с - довжини основ трапеції,<br/>
-                        b, d - довжини бокових сторін трапеції
-                    </p>
+                <div className="theory_formula">
+                    <h3 className="formula_caption">Формула:</h3>
+                    <p className="formula"><b>P = a + b + c</b></p>
+                    <p className="formula_vol"></p>
                 </div>
                 
             </div>
