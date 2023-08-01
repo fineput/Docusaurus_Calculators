@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '@site/src/components/HomepageFeatures/OnlineTrainerSqureCube/App.css';
+import '@site/src/components/HomepageFeatures/SurfaceAreaRectangularParallelepiped/RectangularParallelepiped.css';
 
 function NavBar() {
   const [activeTab, setActiveTab] = useState('calculator');
@@ -40,18 +40,22 @@ function NavBar() {
 }
 
 function Calculator() {
-    const [a, setA] = useState('');
-    const [perimeter, setPerimeter] = useState(0);
+    const [R, setR] = useState('');
+    const [h, setH] = useState('');
+    const [Sb, setSb] = useState(0);
+    const [Sp, setSp] = useState(0);
 
-    const calculatePerimeter = () => {
-        const result = 6 * a * a;
-        setPerimeter(result);
+    const calculateValue = () => {
+        const result1 = 2 * Math.PI * R * h;
+        const result2 = 2 * Math.PI * R * (R + h);
+        setSb(result1.toFixed(3));
+        setSp(result2.toFixed(3));
     }
 
   return <div className="wrapper">
         <div className="header_container">
 
-            <h1>Онлайн калькулятор. Площа поверхні куба</h1>
+            <h1>Онлайн калькулятор. Площа поверхні циліндра</h1>
             
         </div>
 
@@ -64,13 +68,20 @@ function Calculator() {
                     <div className="content_data">
                     
                         <div className="content_flex">
-
-                            <div className="a" id="a">
-                                <label for="a">a: </label>
-                                <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
-                            </div>
                             
-                            <button onClick={calculatePerimeter} className="calculator_button">Знайти площу</button>
+                            <h4 className='content_caption'>Введіть значення радіусу циліндра та його висоти</h4>
+
+                            <div className="" id="r">
+                                <label for="r">R: </label>
+                                <input type="number" value={R} onChange={(e) => setR(Number(e.target.value))} />
+                            </div>
+
+                            <div className="" id="r">
+                                <label for="r">h: </label>
+                                <input type="number" value={h} onChange={(e) => setH(Number(e.target.value))} />
+                            </div>
+
+                            <button onClick={calculateValue} className="calculator_button">Знайти площу</button>
                             
                         </div>
                         <div className="image">                            
@@ -78,8 +89,10 @@ function Calculator() {
                     </div>
                 </div>
                     <div className="results">
-                        <h2>Результат:</h2>
-                        <p id="result">S = {perimeter} см<sup>2</sup></p>
+                        <h2>Площа бокової поверхні циліндра:</h2>
+                        <p id="result">S = {Sb} см<sup>2</sup></p>
+                        <h2>Площа повної поверхні циліндра:</h2>
+                        <p id="result">S = {Sp} см<sup>2</sup></p>
                     </div>
             </div>
         </div>
@@ -90,7 +103,7 @@ function Instructions() {
   // Код компонента інструкцій
   return <div className="content" id="Instuctions">
             <div className="content_data_container">
-                <h2>Ввід даних в калькулятор для обчислення площі поверхні куба</h2>
+                <h3 className='instuctions_caption'>Ввід даних в калькулятор для обчислення площі поверхні циліндра</h3>
                 <div className="instuctions_data">
                     <h3>Ввод чисел:</h3>
                     <ul>
@@ -113,20 +126,33 @@ function Theory() {
   // Код компонента теорії
   return <div>
     <div className="content" id="Theory">
-            <h2 className="theory_caption">Теорія. Площа поверхні куба</h2>
+            <h2 className="theory_caption">Теорія. Площа поверхні циліндра</h2>
             <div className="content_theory_container">
 
                 <div className="content_theory">
-                    <p className="theory_descr"><b>Куб</b> - правильний многогранник, кожна грань якого є квадратом. Всі ребра і грані куба рівні.</p>
+                    <p className="theory_descr"><b>Циліндр </b> - геометричне тіло, обмежене циліндричною поверхнею і двома паралельними площинами (основами), що перетинають її.</p>
 
                 </div>
                
                 <div className="theory_formula">
-                    <h3 className="formula_caption"><b>Площа поверхні куба</b> дорівнює квадрату довжини його грані помноженому на шість (куб має шість однакових граней).</h3>
-                    <p className="formula">S = 6 * a<sup>2</sup> </p>
+                    <h3 className="formula_caption"></h3>
+                    <p className="formula">
+                        <ul>
+                            <li>
+                                Формула для обрахунку площі бічної поверхні циліндра: <br />
+                                <b>S = 2 π R h</b>
+                            </li>
+                            <li>
+                                Формула для обрахунку площі повної поверхні циліндра: <br />
+                                <b>S = 2 π R h + 2 π R 2 = 2 π R(R + h)</b>
+                            </li>
+                        </ul>
+                    </p>
                     <p className="formula_vol">
-                        де S - площа куба,<br/>
-                        a - довжина грані куба. 
+                        де S - площа, <br />
+                        R - радіус циліндра,<br />
+                        h - висота циліндра,<br />
+                        π = 3.141592.
                     </p>
                 </div>
                 

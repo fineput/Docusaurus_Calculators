@@ -40,18 +40,18 @@ function NavBar() {
 }
 
 function Calculator() {
-    const [a, setA] = useState('');
-    const [perimeter, setPerimeter] = useState(0);
+    const [R, setR] = useState('');
+    const [value, setValue] = useState(0);
 
-    const calculatePerimeter = () => {
-        const result = 6 * a * a;
-        setPerimeter(result);
+    const calculateArea = () => {
+        const result = 4 * Math.PI * Math.pow(R, 2);
+        setValue(result.toFixed(3));
     }
 
   return <div className="wrapper">
         <div className="header_container">
 
-            <h1>Онлайн калькулятор. Площа поверхні куба</h1>
+            <h1>Онлайн калькулятор. Площа поверхні шару</h1>
             
         </div>
 
@@ -65,12 +65,14 @@ function Calculator() {
                     
                         <div className="content_flex">
 
-                            <div className="a" id="a">
-                                <label for="a">a: </label>
-                                <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
+                            <h4 className='content_caption'>Введіть значення радіуса шару</h4>
+
+                            <div className="" id="R">
+                                <label for="R">R: </label>
+                                <input type="number" value={R} onChange={(e) => setR(Number(e.target.value))} />
                             </div>
                             
-                            <button onClick={calculatePerimeter} className="calculator_button">Знайти площу</button>
+                            <button onClick={calculateArea} className="calculator_button">Знайти площу</button>
                             
                         </div>
                         <div className="image">                            
@@ -79,7 +81,7 @@ function Calculator() {
                 </div>
                     <div className="results">
                         <h2>Результат:</h2>
-                        <p id="result">S = {perimeter} см<sup>2</sup></p>
+                        <p id="result">S = {value} см<sup>2</sup></p>
                     </div>
             </div>
         </div>
@@ -90,7 +92,7 @@ function Instructions() {
   // Код компонента інструкцій
   return <div className="content" id="Instuctions">
             <div className="content_data_container">
-                <h2>Ввід даних в калькулятор для обчислення площі поверхні куба</h2>
+                <h2>Ввід даних в калькулятор для обчислення площі поверхні шару</h2>
                 <div className="instuctions_data">
                     <h3>Ввод чисел:</h3>
                     <ul>
@@ -113,20 +115,21 @@ function Theory() {
   // Код компонента теорії
   return <div>
     <div className="content" id="Theory">
-            <h2 className="theory_caption">Теорія. Площа поверхні куба</h2>
+            <h2 className="theory_caption">Теорія. Площа поверхні шару</h2>
             <div className="content_theory_container">
 
                 <div className="content_theory">
-                    <p className="theory_descr"><b>Куб</b> - правильний многогранник, кожна грань якого є квадратом. Всі ребра і грані куба рівні.</p>
+                    <p className="theory_descr"><b>Шар</b> -  сукупність всіх точок простору, які знаходяться на відстані не більшій заданої від центру. Ця відстань називається радіусом шару.</p>
 
                 </div>
                
                 <div className="theory_formula">
-                    <h3 className="formula_caption"><b>Площа поверхні куба</b> дорівнює квадрату довжини його грані помноженому на шість (куб має шість однакових граней).</h3>
-                    <p className="formula">S = 6 * a<sup>2</sup> </p>
+                    <h3 className="formula_caption">Площа поверхні шару дорівнює чотирьом його радіусам в квадраті помноженим на число пі.</h3>
+                    <p className="formula"><b>S = 4 π R<sup>2</sup></b></p>
                     <p className="formula_vol">
-                        де S - площа куба,<br/>
-                        a - довжина грані куба. 
+                        де S - площа шару,<br />
+                        R - радіус шару,<br />
+                        π = 3.141592.
                     </p>
                 </div>
                 

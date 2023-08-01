@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '@site/src/components/HomepageFeatures/OnlineTrainerSqureCube/App.css';
+import '@site/src/components/HomepageFeatures/SurfaceAreaRectangularParallelepiped/RectangularParallelepiped.css';
 
 function NavBar() {
   const [activeTab, setActiveTab] = useState('calculator');
@@ -40,18 +40,22 @@ function NavBar() {
 }
 
 function Calculator() {
-    const [a, setA] = useState('');
-    const [perimeter, setPerimeter] = useState(0);
+    const [R, setR] = useState('');
+    const [l, setL] = useState('');
+    const [Sb, setSb] = useState(0);
+    const [Sp, setSp] = useState(0);
 
-    const calculatePerimeter = () => {
-        const result = 6 * a * a;
-        setPerimeter(result);
+    const calculateValue = () => {
+        const result1 = Math.PI * R * l;
+        const result2 = Math.PI * R * (R + l);
+        setSb(result1.toFixed(3));
+        setSp(result2.toFixed(3));
     }
 
   return <div className="wrapper">
         <div className="header_container">
 
-            <h1>Онлайн калькулятор. Площа поверхні куба</h1>
+            <h1>Онлайн калькулятор. Площа поверхні конуса</h1>
             
         </div>
 
@@ -64,13 +68,20 @@ function Calculator() {
                     <div className="content_data">
                     
                         <div className="content_flex">
-
-                            <div className="a" id="a">
-                                <label for="a">a: </label>
-                                <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))} />
-                            </div>
                             
-                            <button onClick={calculatePerimeter} className="calculator_button">Знайти площу</button>
+                            <h4 className='content_caption'>Введіть значеня радіуса конуса і йогого твірної</h4>
+
+                            <div className="" id="r">
+                                <label for="r">R: </label>
+                                <input type="number" value={R} onChange={(e) => setR(Number(e.target.value))} />
+                            </div>
+
+                            <div className="" id="l">
+                                <label for="l">l: </label>
+                                <input type="number" value={l} onChange={(e) => setL(Number(e.target.value))} />
+                            </div>
+
+                            <button onClick={calculateValue} className="calculator_button">Знайти площу</button>
                             
                         </div>
                         <div className="image">                            
@@ -78,8 +89,10 @@ function Calculator() {
                     </div>
                 </div>
                     <div className="results">
-                        <h2>Результат:</h2>
-                        <p id="result">S = {perimeter} см<sup>2</sup></p>
+                        <h2>Площа бокової поверхні конуса:</h2>
+                        <p id="result">S = {Sb} см<sup>2</sup></p>
+                        <h2>Площа повної поверхні конуса:</h2>
+                        <p id="result">S = {Sp} см<sup>2</sup></p>
                     </div>
             </div>
         </div>
@@ -90,7 +103,7 @@ function Instructions() {
   // Код компонента інструкцій
   return <div className="content" id="Instuctions">
             <div className="content_data_container">
-                <h2>Ввід даних в калькулятор для обчислення площі поверхні куба</h2>
+                <h3 className='instuctions_caption'>Ввід даних в калькулятор для обчислення площі поверхні конуса</h3>
                 <div className="instuctions_data">
                     <h3>Ввод чисел:</h3>
                     <ul>
@@ -113,20 +126,33 @@ function Theory() {
   // Код компонента теорії
   return <div>
     <div className="content" id="Theory">
-            <h2 className="theory_caption">Теорія. Площа поверхні куба</h2>
+            <h2 className="theory_caption">Теорія. Площа поверхні конуса</h2>
             <div className="content_theory_container">
 
                 <div className="content_theory">
-                    <p className="theory_descr"><b>Куб</b> - правильний многогранник, кожна грань якого є квадратом. Всі ребра і грані куба рівні.</p>
+                    <p className="theory_descr"><b>Конус </b> -  тіло, отримане об'єднанням всіх лучив, що виходять з однієї точки (вершини конуса) і проходять через плоску поверхню. Також можна сказати, що конус - це тіло, отримане при обертанні прямокутного трикутника навколо одного з його катетів.</p>
 
                 </div>
                
                 <div className="theory_formula">
-                    <h3 className="formula_caption"><b>Площа поверхні куба</b> дорівнює квадрату довжини його грані помноженому на шість (куб має шість однакових граней).</h3>
-                    <p className="formula">S = 6 * a<sup>2</sup> </p>
+                    <h3 className="formula_caption"></h3>
+                    <p className="formula">
+                        <ul>
+                            <li>
+                                Формула для обчислення площі бокової поверхні конуса: <br />
+                                <b>S = π R l</b>
+                            </li>
+                            <li>
+                                Формула для обрахунку площі повної поверхні циліндра: <br />
+                                <b>S = π R<sup>2</sup> + π R l = π R (R + l)</b>
+                            </li>
+                        </ul>
+                    </p>
                     <p className="formula_vol">
-                        де S - площа куба,<br/>
-                        a - довжина грані куба. 
+                        де S - площа конуса,<br />
+                        R - радіус основи конуса,<br />
+                        l - твірна бічної поверхні конуса, <br />
+                        π = 3.141592.
                     </p>
                 </div>
                 
